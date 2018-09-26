@@ -1,0 +1,18 @@
+#include <math.h>
+#include <stdio.h>
+
+int main()
+{
+	
+	float b,a;
+
+	printf("enter a,b \n");
+	scanf("%f", &a);
+	scanf("%f", &b);
+
+	float c = (pow((a - b), 3) - pow(a, 3)) / (pow(b, 3) - 3 * a*pow(b, 2) - 3 * pow(a, 2)*b);
+
+	printf("Result: %f \n", c);
+
+	return 0;
+}
