@@ -4,6 +4,7 @@
 
 int main()
 {
+
 	int m, n, a, b, c;
 
 	printf("enter m,n \n");
