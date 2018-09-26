@@ -14,6 +14,7 @@ int main()
               one = (cos(2*n*x))/(4*n*n - 1);
               SN+=one;
             }  
+            
            do
               {
                   one = (cos(2*n*x))/(4*n*n - 1);
