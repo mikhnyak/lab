@@ -39,7 +39,7 @@ int main()
           printf("%d ", mas[i]);
        }
        
-       printf(" \n mas2: \n");
+       printf(" \n mas(unpair): \n");
        
       for (i=k; i<n; i++)
        {
