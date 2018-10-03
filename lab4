@@ -54,10 +54,11 @@ int main()
        {
           if ((mas[i] % 2) == 0)
             {
-               printf("%d ", mas[i]);
+               mas[i]=0;
             }
            else
-           mas[i]=0;
+           printf("%d ", mas[i]);
+           
         }
        
      return 0;  
