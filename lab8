@@ -1,0 +1,75 @@
+#include "pch.h"
+#include <iostream>
+#include <string.h > 
+#include <mbstring.h >
+#include <stdio.h>
+struct book
+{
+	char name[40];
+	char author[40];
+	int year;
+	int pages;
+}Book;
+
+int main()
+{
+	char a[40];
+	FILE *f;
+	book e;
+	book mas[10];
+	if ((f=fopen("f.txt", "wb")) == NULL)
+	{
+		printf("Problem opening the file (1)\n");
+		exit(1);
+	}
+		int i;
+		for (i = 0; i <4; i++)
+		{
+			printf("Enter book %d\n",i+1);
+			printf("name: "); scanf("%s", e.name);		//, (unsigned)_countof(e.name)
+			printf("author: "); scanf("%s", e.author);
+			printf("year: "); scanf("%d", &e.year);
+			printf("pages: "); scanf("%d", &e.pages);
+			//e.number = i;
+			mas[i] = e;
+			fwrite(&e, sizeof(book), 1, f);
+			if (ferror(f) != 0)
+			{
+				printf("File could not be written (1)\n");
+				exit(2);
+			}
+		}
+			fclose(f);
+
+			printf(" Enter new book\n");
+			printf("name: "); scanf("%s", e.name);
+			printf("author: "); scanf("%s", e.author);
+			printf("year: "); scanf("%d", &e.year);
+			printf("pages: "); scanf("%d", &e.pages);
+			printf(" Enter name of the book before which the new book will be pasted\n");
+			scanf("%s", a);
+
+
+			if ((f=fopen("f.txt", "wb")) == NULL)
+			{
+				printf("Problem opening the file (2)\n");
+				exit(1);
+			}
+			for (int i = 0; i < 10; i++)
+			{
+				if (i < 3)	continue;
+				if (strcmp(a, mas[i].name) == 0)
+				{
+					fwrite(&e, sizeof(book), 1, f);
+				}
+				fwrite(&mas[i], sizeof(book), 1, f);
+				if (ferror(f) != 0)
+				{
+					printf("File could not be written (2)\n");
+					exit(2);
+				}
+
+			}
+			fclose(f);
+			
+}
