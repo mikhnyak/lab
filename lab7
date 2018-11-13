@@ -1,0 +1,33 @@
+#include "pch.h"
+#include <iostream.h>
+#include <math.h>
+
+int nok(int k, ...)
+{
+	int mink;
+	int *p = &k;
+	for (; k != 0; k--)
+	{
+		if ((*(p + 1) % *p) == 0)
+		{
+			mink = *(p + 1);
+			*(p++);
+		}
+		else if ((*p  % *(p + 1)) == 0)
+		{
+			mink = *p;
+			*(p++);
+		}
+		else if ((*p  % *(p + 1)) != 0 | (*(p+1)  % *p) != 0)
+		{
+			mink = *p * *(p+1);
+			*(p++);
+		}
+
+	}
+	return mink;
+ }
+int main()
+{
+	cout << "\n Least common multiple: " << nok(3, 2, 4, 3);
+}
