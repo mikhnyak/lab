@@ -1,0 +1,42 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+	int main()
+	{
+		char text[255], z[255];
+		char text2[255][255];
+		char *s;
+		int k = 0, n = 0;
+
+		printf("enter the text\n");
+		gets_s(text);
+
+		s = &text[0];
+		while (*s != '\0') {
+			if (*s != ' ')
+				text2[k][n++] = *s;
+			else {
+				text2[k++][n++] = '\0';
+				n = 0;
+			};
+			s++;
+		};
+		text2[k++][n] = '\0';
+
+		for (int i = 1; i < k; i++) {
+			for (int j = i; j > 0; j--) {
+				if (text2[j][0] > text2[j - 1][0]) {
+					strcpy_s(z, text2[j]);
+					strcpy_s(text2[j], text2[j - 1]);
+					strcpy_s(text2[j - 1], z);
+				}
+			}
+		}
+
+
+		for (int i = 0; i < k; i++)
+			printf("%s ", text2[i]);
+
+	}
