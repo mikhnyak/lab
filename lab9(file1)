@@ -1,0 +1,28 @@
+#include "pch.h"
+#include <iostream>
+#include <stdio.h>
+
+int main()
+{
+	FILE *f1;
+	char text[100];
+	if ((f1 = fopen("f1.txt", "wb")) == NULL)
+	{
+		printf("Problem opening the file (1)\n");
+		exit(1);
+	}
+	int i;
+	for (i = 0; i < 3; i++)
+	{
+		printf("Enter the text%d\n", i + 1);
+		gets_s(text);
+		strcat(text,"\r\n");
+		fwrite(&text, sizeof(char), strlen(text), f1);
+		if (ferror(f1) != 0)
+		{
+			printf("File could not be written (1)\n");
+			exit(2);
+		}
+	}
+	fclose(f1);
+}
